@@ -1,39 +1,58 @@
 ---
-pack: 3 — Architecture Demo
-format: ASCII / Mermaid architecture diagram + component spec
-build-via: prompts/05e-ascii-architecture.md hoặc 05f-mermaid-architecture.md
+artifact: 3 — Demo kiến trúc dữ liệu
+format: sơ đồ xử lý + bảng thành phần
 ---
 
-# 📦 Pack 3 — Architecture Demo
+# demo.md — Demo kiến trúc dữ liệu
 
-## Diagram
+File này dùng để đặt sơ đồ và mô tả ngắn cách hệ thống giảm rủi ro.
 
-(Paste ASCII / Mermaid output từ prompt 5e/5f)
+---
 
+## 1. Sơ đồ cách hệ thống xử lý
+
+```text
+[Đặt sơ đồ ở đây]
+
+Ví dụ khung:
+
+Người dùng hỏi
+  -> Phân loại câu hỏi
+  -> Có phải câu hỏi rủi ro cao không?
+      -> Không: AI trả lời như bình thường
+      -> Có: Tra nguồn chính thức
+          -> Có dữ liệu: AI trả lời kèm nguồn
+          -> Không có dữ liệu: Chuyển sang người thật
+  -> Ghi lại để theo dõi lỗi
 ```
-[Paste diagram ở đây — ASCII hoặc Mermaid code block]
-```
 
-## Component spec
+---
 
-| Component | Input | Processing | Output | SLA / Notes |
-|---|---|---|---|---|
-| Intent Classifier | User query | Detect "scholarship + deadline" keywords | Route to RAG (Y) / General LLM (N) | <50ms |
-| RAG Service | Classified query | Query /api/scholarships?date=current | Verified data + source URL | <200ms |
-| Cache (Redis) | Query hash | Check cache → return if hit | Cached response | 1h TTL |
-| Admissions API | RAG call | Lookup official policy | JSON data | REST 200ms, 99% uptime |
-| Fallback handler | API null/timeout | Trigger AI refuse + escalation | "Counselor sẽ trả lời 4h" | — |
-| Monitoring | All requests | Log query + response + verdict | Audit log + alerts | Daily review |
+## 2. Thành phần chính
 
-## Failure paths
+| Thành phần | Nhận gì? | Làm gì? | Trả ra gì? |
+|---|---|---|---|
+| Phân loại câu hỏi | Câu hỏi của người dùng | Xác định có rủi ro cao không | Trả lời thường / cần kiểm tra nguồn |
+| Nguồn chính thức | Chủ đề cần kiểm tra | Tìm dữ liệu mới nhất | Thông tin + nguồn |
+| Bộ xử lý khi thiếu nguồn | Kết quả không có dữ liệu | Không cho AI đoán | Yêu cầu chuyển sang người thật |
+| Ghi lại lỗi | Câu hỏi + kết quả | Lưu lỗi để xem lại | Danh sách lỗi lặp lại |
 
-- **API timeout (>2s)** → return cached if available, else AI refuse + escalate
-- **API null** → AI refuse + escalate counselor (SLA 4h)
-- **Cache miss + API down** → AI refuse with explicit "service degraded" message
-- **Rate limit hit** → queue + retry với exponential backoff
+---
 
-## Iteration history
+## 3. Khi hệ thống gặp vấn đề
 
-- **v1**: Basic RAG flow (3 components: Classifier + RAG + API)
-- **v2** (after AI critique): Added cache layer + fallback escalation
-- **v3** (after team review): Added monitoring + rate limit + circuit breaker
+| Khi nào lỗi xảy ra? | Hệ thống làm gì? | Người dùng thấy gì? |
+|---|---|---|
+| Nguồn chính thức không có dữ liệu | | |
+| Nguồn bị lỗi hoặc quá chậm | | |
+| Câu hỏi vượt phạm vi AI | | |
+| Lỗi này lặp lại nhiều lần | | |
+
+---
+
+## 4. Kiểm tra nhanh
+
+- [ ] Sơ đồ không chỉ là “AI trả lời tốt hơn”, mà có bước kiểm tra cụ thể.
+- [ ] Có cách xử lý khi thiếu dữ liệu.
+- [ ] Có cách chuyển sang người thật.
+- [ ] Có cách theo dõi để lần sau sửa tốt hơn.

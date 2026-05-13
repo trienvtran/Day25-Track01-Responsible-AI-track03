@@ -1,22 +1,46 @@
 ---
-pack: 1 — UI/UX Demo
-format: [Paper sketch / Excalidraw / Vibe-code / HTML / ASCII / Mermaid]
-build-via: prompts/05a-ascii-ui-sketch.md hoặc 05b-mermaid-ui-flow.md
+artifact: 1 — Demo giao diện
+format: phác thảo / ảnh / HTML / các màn hình chính
 ---
 
-# 📦 Pack 1 — UI/UX Demo
+# demo.md — Demo giao diện
 
-**Note**: File này = VISUAL của solution. Nếu format khác markdown (sketch.png, Excalidraw export), thay file này bằng image / link.
+File này dùng để đặt phần trực quan của giải pháp.
 
-## Demo
+Nếu nhóm có ảnh, bản vẽ hoặc link prototype, đặt link vào đây. Nếu làm bằng Markdown, dùng khung bên dưới.
 
-(Paste ASCII / Mermaid code, hoặc embed image, hoặc link prototype)
+---
 
+## 1. Màn hình chính
+
+```text
+[Đặt phác thảo màn hình ở đây]
 ```
-[Paste demo ở đây]
-```
 
-## Annotation (nếu cần)
+---
 
-- [Component 1] — [behavior + state machine]
-- [Component 2] — [interaction + edge case]
+## 2. Trạng thái cần minh họa
+
+| Trạng thái | Người dùng thấy gì? | Người dùng làm gì tiếp? |
+|---|---|---|
+| Có nguồn xác minh | | |
+| Chưa có nguồn xác minh | | |
+| AI không nên tự trả lời | | |
+| Cần chuyển sang người thật | | |
+
+---
+
+## 3. Ghi chú cho từng thành phần
+
+- [Thành phần 1]: [vị trí, nội dung, hành vi]
+- [Thành phần 2]: [vị trí, nội dung, hành vi]
+- [Thành phần 3]: [vị trí, nội dung, hành vi]
+
+---
+
+## 4. Kiểm tra nhanh
+
+- [ ] Nhìn vào demo là hiểu rủi ro đang được chặn ở đâu.
+- [ ] Có trạng thái khi AI không có đủ thông tin.
+- [ ] Có cách chuyển sang người thật.
+- [ ] Câu chữ đủ ngắn để đặt trên màn hình thật.

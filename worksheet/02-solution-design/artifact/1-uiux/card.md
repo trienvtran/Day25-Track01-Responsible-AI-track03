@@ -1,62 +1,82 @@
 ---
-pack: 1 — UI/UX Solution
-layer: Layer 3 — UX/UI Response
+artifact: 1 — Lớp giao diện
 bai-tap: 2 — Thiết kế giải pháp
-demo: ./demo.{png/md/html}  (demo trực quan cùng folder)
+demo: ./demo.md
 ---
 
-# 📦 Pack 1 — UI/UX Solution Card
+# card.md — Lớp giao diện
 
-**Ca xử lý**: T-__ (xem `../../1-map-and-format.md` Phần A)
-
----
-
-## 1. Tóm tắt giải pháp (1 đoạn)
-
-[Mô tả 2–3 câu: UI/UX intervention làm gì để address root cause]
-
-Ví dụ: *"Thêm badge 'Đã xác thực từ admissions.edu' / 'Chưa xác minh — counselor sẽ follow up' khi response của AI chứa deadline học bổng. Stack với skeleton loading state + nút 'Escalate counselor' luôn hiện trên mọi response."*
+**Tình huống xử lý**: T-__  
+Xem `../../1-map-and-format.md` Phần A.
 
 ---
 
-## 2. Tầng + Lý do phù hợp (Layer 3 UX/UI Response)
+## 1. Giải pháp là gì?
 
-**Tại sao tầng UI/UX phù hợp**:
-- User tin AI quá mức → cần tầng **Disclose** (cảnh báo trực quan)
-- **Catch** failure ngay khoảnh khắc user nhận response, **trước khi user act**
-- Defense in Depth: UX catch khi Pack 2 Prompt + Pack 3 Architecture miss
+[Viết 2-3 câu. Nói rõ màn hình sẽ thay đổi gì để giảm rủi ro.]
 
-**Verbs cover**: Disclose ✓ / Catch ✓
+Ví dụ:
 
----
-
-## 3. Artifact cụ thể (ref `./demo.{format}`)
-
-**Format demo**: [Vẽ tay sketch / Excalidraw / Vibe-code prototype / HTML / ASCII / Mermaid]
-
-**Thành phần UI chính** (3–5 bullet):
-- [Component 1: badge, nội dung text, màu, vị trí]
-- [Component 2: nút escalate + hành vi]
-- [Component 3: loading state + message]
-- [Component 4 nếu có]
-
-**File demo**: → [`demo.{format}`](./demo.md) (paste / embed / link)
+> Khi AI trả lời về hạn nộp học bổng, giao diện hiện nhãn “Đã kiểm tra từ nguồn chính thức” hoặc “Chưa có nguồn xác minh”. Nếu thiếu nguồn, màn hình hiện nút chuyển cho tư vấn viên.
 
 ---
 
-## 4. Tác dụng phụ + cách giảm
+## 2. Vì sao sửa ở lớp giao diện?
 
-**Rủi ro**: [UX rối / user fatigue với disclaimer / latency tăng khi check source]
-**Cách giảm**: [Skeleton loading + lazy badge / ẩn badge khi confidence > 95% / escalate async]
+[Chọn 1-2 ý đúng với giải pháp của nhóm.]
+
+- Người dùng dễ tin câu trả lời của AI quá mức.
+- Rủi ro xảy ra ở khoảnh khắc người dùng đọc câu trả lời.
+- Giao diện cần làm rõ: thông tin nào đã kiểm tra, thông tin nào chưa chắc.
+- Nếu prompt hoặc dữ liệu vẫn sót lỗi, giao diện là lớp chặn cuối.
+
+**Hành động phòng vệ chính**:
+
+- [ ] Thông báo rõ giới hạn
+- [ ] Phát hiện dấu hiệu thiếu nguồn
+- [ ] Chuyển người thật khi cần
+- [ ] Giúp người dùng kiểm tra lại nguồn
 
 ---
 
-## 5. Note xây dựng (workflow 25–30 phút)
+## 3. Demo nằm ở đâu?
 
-1. [ ] Paste `../../00-context.md` + `../../1-map-and-format.md` Phần C Solution 1 vào AI
-2. [ ] Paste prompt từ `../../../../prompts/05a-ascii-ui-sketch.md` HOẶC `05b-mermaid-ui-flow.md`
-3. [ ] AI gen draft → iterate v1 → v2
-4. [ ] Save vào `./demo.{format}`
-5. [ ] Fill section 1–4 ở trên
+**File demo**: [`demo.md`](./demo.md)
 
-**Người driver**: [Tên thành viên]
+**Định dạng demo**:
+
+- [ ] Phác thảo màn hình
+- [ ] Luồng màn hình
+- [ ] Bản HTML đơn giản
+- [ ] Ảnh hoặc link prototype
+
+**Thành phần cần có trong demo**:
+
+- Trạng thái có nguồn xác minh
+- Trạng thái chưa có nguồn xác minh
+- Cách người dùng chuyển sang người thật
+- Câu chữ cảnh báo ngắn, dễ hiểu
+
+---
+
+## 4. Tác dụng phụ
+
+**Có thể gây vấn đề gì?**
+
+[Ví dụ: màn hình rối hơn, người dùng thấy bị làm phiền, thao tác chậm hơn.]
+
+**Nhóm giảm vấn đề đó bằng cách nào?**
+
+[Ví dụ: chỉ hiện cảnh báo khi câu trả lời có rủi ro cao; dùng nhãn ngắn; đưa chi tiết vào nút mở rộng.]
+
+---
+
+## 5. Checklist trước khi nộp
+
+- [ ] Giải pháp gắn đúng với một rủi ro chính.
+- [ ] Demo nhìn vào là hiểu vấn đề được chặn ở đâu.
+- [ ] Có đủ trạng thái bình thường và trạng thái lỗi.
+- [ ] Có cách chuyển sang người thật khi AI không nên tự xử lý.
+- [ ] Câu chữ trong giao diện ngắn, không đổ hết trách nhiệm cho người dùng.
+
+**Người phụ trách**: [Tên thành viên]

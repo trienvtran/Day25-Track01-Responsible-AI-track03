@@ -1,62 +1,76 @@
 ---
-pack: 2 — Prompt Engineering Solution
-layer: Layer 2 — System Prompt / Refuse / Cite-ground
+artifact: 2 — Lớp chỉ dẫn AI
 bai-tap: 2 — Thiết kế giải pháp
-demo: ./demo.md  (system prompt text + few-shot examples)
+demo: ./demo.md
 ---
 
-# 📦 Pack 2 — Prompt Engineering Solution Card
+# card.md — Lớp chỉ dẫn AI
 
-**Ca xử lý**: T-__ (xem `../../1-map-and-format.md` Phần A)
-
----
-
-## 1. Tóm tắt giải pháp (1 đoạn)
-
-[Mô tả 2–3 câu: prompt engineering intervention làm gì để address root cause]
-
-Ví dụ: *"System prompt rule refuse rõ ràng khi thiếu nguồn: 'Never state specific dates without citing official URL. If unsure, respond: I do not have verified info, escalating to counselor.' Stack với 3 few-shot examples + bắt buộc cite-ground."*
+**Tình huống xử lý**: T-__  
+Xem `../../1-map-and-format.md` Phần A.
 
 ---
 
-## 2. Tầng + Lý do phù hợp (Layer 2 System Prompt)
+## 1. Giải pháp là gì?
 
-**Tại sao tầng Prompt Engineering phù hợp**:
-- AI bias toward confident answer → cần rule **Refuse + Cite-ground**
-- **Prevent** failure ở tầng model, **trước khi** response gen ra
-- Low-cost intervention (không cần thay đổi infra), high-leverage (1 prompt = nhiều ca)
+[Viết 2-3 câu. Nói rõ nhóm sẽ thêm luật, giới hạn hoặc ví dụ mẫu nào để AI trả lời an toàn hơn.]
 
-**Verbs cover**: Prevent ✓ / Refuse ✓
+Ví dụ:
 
----
-
-## 3. Artifact cụ thể (ref `./demo.md`)
-
-**Format demo**: Markdown spec (system prompt text + few-shot)
-
-**Thành phần prompt chính**:
-- [Refuse rule 1: không bao giờ state X mà không có Y]
-- [Yêu cầu cite-ground: "phải cite URL nguồn khi trả lời về Z"]
-- [Template refuse: "Tôi không có thông tin được xác minh về [topic]..."]
-- [3 few-shot examples cover các ca khác nhau]
-
-**File demo**: → [`demo.md`](./demo.md) (full prompt text)
+> Khi người dùng hỏi ngày, số tiền hoặc chính sách tuyển sinh, AI chỉ được trả lời nếu có nguồn chính thức. Nếu thiếu nguồn, AI phải nói rõ là chưa xác minh được và chuyển cho tư vấn viên.
 
 ---
 
-## 4. Tác dụng phụ + cách giảm
+## 2. Vì sao sửa ở lớp chỉ dẫn AI?
 
-**Rủi ro**: [Over-refusal — AI refuse quá nhiều ca bình thường / response cứng / few-shot drift]
-**Cách giảm**: [Calibrate threshold refuse qua test set / thêm template "soft refusal" / monitor pass rate cho ca normal]
+[Chọn 1-2 ý đúng với giải pháp của nhóm.]
+
+- AI đang trả lời quá tự tin khi thiếu nguồn.
+- AI đang chiều theo giả định sai của người dùng.
+- AI cần luật rõ: khi nào trả lời, khi nào từ chối, khi nào chuyển sang người thật.
+- Có thể sửa nhanh bằng prompt trước khi thay đổi hệ thống lớn hơn.
+
+**Hành động phòng vệ chính**:
+
+- [ ] Ngăn câu trả lời sai ngay từ đầu
+- [ ] Bắt buộc nêu nguồn khi nói về thông tin quan trọng
+- [ ] Từ chối trả lời khi thiếu căn cứ
+- [ ] Chuyển người thật khi vượt phạm vi
 
 ---
 
-## 5. Note xây dựng (workflow 15–20 phút)
+## 3. Demo nằm ở đâu?
 
-1. [ ] Paste `../../00-context.md` + `../../1-map-and-format.md` Phần C Solution 2 vào AI
-2. [ ] Brainstorm prompt: rule refuse + cite-ground + few-shot
-3. [ ] AI gen draft prompt → test với 3–5 ca từ test set Bài 1
-4. [ ] Save final prompt + few-shot vào `./demo.md`
-5. [ ] Fill section 1–4 ở trên
+**File demo**: [`demo.md`](./demo.md)
 
-**Người driver**: [Tên thành viên]
+Demo cần có:
+
+- Luật chính cho AI
+- Mẫu câu khi thiếu nguồn
+- Mẫu câu khi cần chuyển sang người thật
+- 2-3 ví dụ hỏi đáp để kiểm tra luật
+- Kết quả thử lại với vài tình huống từ Bài 1
+
+---
+
+## 4. Tác dụng phụ
+
+**Có thể gây vấn đề gì?**
+
+[Ví dụ: AI từ chối quá nhiều, câu trả lời cứng, trải nghiệm chậm hơn vì phải kiểm tra nguồn.]
+
+**Nhóm giảm vấn đề đó bằng cách nào?**
+
+[Ví dụ: chỉ bắt buộc nguồn với thông tin rủi ro cao; tách từ chối mềm và từ chối cứng; kiểm tra lại bằng bộ tình huống.]
+
+---
+
+## 5. Checklist trước khi nộp
+
+- [ ] Luật viết đủ cụ thể để AI làm theo.
+- [ ] Có mẫu câu khi AI không có đủ thông tin.
+- [ ] Có ví dụ cho tình huống dễ sai.
+- [ ] Có thử lại bằng tình huống trong Bài 1.
+- [ ] Không dùng prompt như cách duy nhất nếu lỗi nằm ở dữ liệu hoặc quy trình.
+
+**Người phụ trách**: [Tên thành viên]

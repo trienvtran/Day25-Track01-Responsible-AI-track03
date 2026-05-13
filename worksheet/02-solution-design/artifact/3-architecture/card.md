@@ -1,69 +1,76 @@
 ---
-pack: 3 — Architecture / RAG Solution
-layer: Layer 1 — Data Architecture / RAG / Source policy
+artifact: 3 — Lớp kiến trúc dữ liệu
 bai-tap: 2 — Thiết kế giải pháp
-demo: ./demo.md  (ASCII / Mermaid diagram + component spec)
+demo: ./demo.md
 ---
 
-# 📦 Pack 3 — Architecture / RAG Solution Card
+# card.md — Lớp kiến trúc dữ liệu
 
-**Ca xử lý**: T-__ (xem `../../1-map-and-format.md` Phần A)
-
----
-
-## 1. Tóm tắt giải pháp (1 đoạn)
-
-[Mô tả 2–3 câu: architecture intervention làm gì để address root cause]
-
-Ví dụ: *"RAG service query admissions API (REST 200ms) cho mọi response chứa keyword scholarship/deadline. Cache layer Redis TTL 1h. Fallback: nếu API null/timeout → AI refuse + escalate counselor (SLA 4h)."*
+**Tình huống xử lý**: T-__  
+Xem `../../1-map-and-format.md` Phần A.
 
 ---
 
-## 2. Tầng + Lý do phù hợp (Layer 1 Data Architecture)
+## 1. Giải pháp là gì?
 
-**Tại sao tầng Architecture/RAG phù hợp**:
-- Root cause = **thiếu nguồn đúng** (knowledge base outdated / không có data)
-- **Prevent** failure ngay tầng data source, **trước khi** model gen response
-- Defense in Depth: Architecture grounds, Prompt enforces, UI discloses
+[Viết 2-3 câu. Nói rõ hệ thống cần thêm nguồn dữ liệu, bước kiểm tra, cách chuyển câu hỏi hoặc cách ghi lại lỗi nào.]
 
-**Verbs cover**: Prevent ✓ / Ground in source ✓
+Ví dụ:
 
----
-
-## 3. Artifact cụ thể (ref `./demo.md`)
-
-**Format demo**: ASCII architecture diagram HOẶC Mermaid (Prompt 5e / 5f)
-
-**Thành phần chính** (3–5 bullet):
-- [Intent Classifier: detect keyword "scholarship + deadline"]
-- [RAG Service: query `/api/scholarships?date=current`, cite policy URL]
-- [Cache layer: Redis TTL 1h cho query phổ biến]
-- [Fallback path: API null → AI refuse + escalate counselor]
-- [Monitoring: log mọi query → audit + retrain]
-
-**File demo**: → [`demo.md`](./demo.md) (ASCII / Mermaid + bảng spec component)
+> Với câu hỏi về học bổng, hệ thống phải tra nguồn tuyển sinh chính thức trước khi AI trả lời. Nếu nguồn không có dữ liệu hoặc bị lỗi, AI không được đoán mà chuyển câu hỏi cho tư vấn viên.
 
 ---
 
-## 4. Tác dụng phụ + cách giảm
+## 2. Vì sao sửa ở lớp kiến trúc dữ liệu?
 
-**Rủi ro 1**: Latency tăng (REST 200ms + cache 50ms = 250ms vs 50ms baseline)
-**Cách giảm**: Skeleton loading + fallback async nếu RAG > 2s
+[Chọn 1-2 ý đúng với giải pháp của nhóm.]
 
-**Rủi ro 2**: API downtime → cascade failure (sập theo)
-**Cách giảm**: Cache fallback + circuit breaker + counselor escalation SLA 4h
+- Nguyên nhân chính là thiếu nguồn đúng hoặc nguồn cũ.
+- AI đang phải tự nhớ thông tin thay vì đọc từ nguồn đáng tin cậy.
+- Cần kiểm tra dữ liệu trước khi câu trả lời được tạo ra.
+- Cần ghi lại lỗi để nhóm biết lỗi nào lặp lại nhiều.
 
-**Rủi ro 3**: Cost (API calls tốn $)
-**Cách giảm**: Cache aggressive + rate limit theo user
+**Hành động phòng vệ chính**:
+
+- [ ] Ngăn lỗi bằng nguồn dữ liệu đúng
+- [ ] Phát hiện khi nguồn thiếu hoặc lỗi
+- [ ] Khắc phục bằng cách chuyển sang người thật
+- [ ] Ghi lại lỗi để cải thiện sau
 
 ---
 
-## 5. Note xây dựng (workflow 15–20 phút)
+## 3. Demo nằm ở đâu?
 
-1. [ ] Paste `../../00-context.md` + `../../1-map-and-format.md` Phần C Solution 3 vào AI
-2. [ ] Paste prompt từ `../../../../prompts/05e-ascii-architecture.md` HOẶC `05f-mermaid-architecture.md`
-3. [ ] AI gen draft → iterate v1 → v2 (thêm cache, monitoring, fallback)
-4. [ ] Save diagram + spec component vào `./demo.md`
-5. [ ] Fill section 1–4 ở trên
+**File demo**: [`demo.md`](./demo.md)
 
-**Người driver**: [Tên thành viên]
+Demo cần có:
+
+- Sơ đồ cách dữ liệu đi qua hệ thống
+- Nguồn dữ liệu chính thức
+- Bước kiểm tra trước khi AI trả lời
+- Cách xử lý khi nguồn thiếu, lỗi hoặc quá cũ
+- Cách ghi lại hoặc theo dõi lỗi
+
+---
+
+## 4. Tác dụng phụ
+
+**Có thể gây vấn đề gì?**
+
+[Ví dụ: trả lời chậm hơn, phụ thuộc vào nguồn dữ liệu, tốn công duy trì, hệ thống phức tạp hơn.]
+
+**Nhóm giảm vấn đề đó bằng cách nào?**
+
+[Ví dụ: lưu tạm dữ liệu phổ biến, có thông báo khi nguồn lỗi, đặt người phụ trách cập nhật nguồn, giới hạn chỉ áp dụng với câu hỏi rủi ro cao.]
+
+---
+
+## 5. Checklist trước khi nộp
+
+- [ ] Sơ đồ cho thấy dữ liệu đi từ đâu đến đâu.
+- [ ] Có bước kiểm tra nguồn trước khi AI trả lời.
+- [ ] Có cách xử lý khi không có dữ liệu.
+- [ ] Có cách chuyển sang người thật với tình huống rủi ro cao.
+- [ ] Có cách biết lỗi này có đang lặp lại không.
+
+**Người phụ trách**: [Tên thành viên]

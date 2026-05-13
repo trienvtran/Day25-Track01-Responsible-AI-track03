@@ -41,7 +41,7 @@ Tìm sự cố AI hoặc chatbot trong 5 năm gần đây có bối cảnh gần
 Ưu tiên 3 kiểu sự cố:
 
 - **Cùng ngành**: giáo dục, hàng không, y tế, ngân hàng, tuyển dụng, chăm sóc khách hàng.
-- **Cùng kiểu lỗi**: AI bịa thông tin, rò rỉ dữ liệu, thiên lệch, chiều theo người dùng, không chuyển người thật.
+- **Cùng kiểu lỗi**: AI bịa thông tin, rò rỉ dữ liệu, thiên lệch, chiều theo người dùng, không chuyển sang người thật.
 - **Cùng nhóm người dùng**: học sinh, bệnh nhân, ứng viên, khách hàng đang vội hoặc lo lắng.
 
 ### Nguồn nên ưu tiên
@@ -52,7 +52,7 @@ Tìm sự cố AI hoặc chatbot trong 5 năm gần đây có bối cảnh gần
 | 2 | Báo chí uy tín | Reuters, BBC, NYT, AP, VnExpress, Tuổi Trẻ |
 | 3 | Báo cáo ngành / học thuật | Microsoft AI Red Team, OpenAI, Anthropic, Stanford HAI |
 
-Tránh dùng tweet, bài marketing, blog không có nguồn, hoặc claim không kiểm chứng được.
+Tránh dùng bài đăng ngắn trên mạng xã hội, bài marketing, blog không có nguồn, hoặc khẳng định chưa kiểm chứng.
 
 | # | Ngày | Tổ chức | Việc đã xảy ra | Nguồn | Mức độ | Đã kiểm chứng? |
 |---|---|---|---|---|---|---|
@@ -66,9 +66,9 @@ Tránh dùng tweet, bài marketing, blog không có nguồn, hoặc claim không
 - [ ] Nội dung nguồn có khớp với điều mình ghi không.
 - [ ] Ưu tiên nguồn gốc: hồ sơ tòa án, thông báo chính thức, báo lớn.
 - [ ] Với sự cố nghiêm trọng, đối chiếu ít nhất 2 nguồn.
-- [ ] Nếu chưa chắc, đánh dấu `[UNVERIFIED]`, không viết như sự thật đã xác nhận.
+- [ ] Nếu chưa chắc, đánh dấu `[CHƯA KIỂM CHỨNG]`, không viết như sự thật đã xác nhận.
 
-Lưu ý quan trọng: AI có thể bịa cả citation. Không dùng nguồn chỉ vì AI đưa ra nghe có vẻ thật.
+Lưu ý quan trọng: AI có thể bịa cả nguồn trích dẫn. Không dùng nguồn chỉ vì AI đưa ra nghe có vẻ thật.
 
 Ví dụ cảnh báo: trong vụ luật sư dùng ChatGPT ở hồ sơ Mata v. Avianca, AI tạo ra nhiều án lệ không tồn tại. Vấn đề không phải là AI "viết chưa hay"; vấn đề là người dùng đã không tự kiểm chứng nguồn trước khi nộp.
 
@@ -82,14 +82,14 @@ Yêu cầu AI tạo thêm tình huống theo 4 góc nhìn:
 
 | Góc nhìn | Câu hỏi gợi mở | Mục tiêu |
 |---|---|---|
-| L1 — Hậu quả trước | Nếu AI sai, hậu quả nặng nhất là gì? | 4-5 tình huống |
-| L2 — Tình huống đời thường | Người dùng đang vội, mơ hồ, lười đọc, hoặc cố thuyết phục AI sẽ hỏi gì? | 3-4 tình huống |
-| L3 — Bối cảnh riêng | Tình huống nào chỉ chủ đề của nhóm mới có? | 3-4 tình huống |
-| L5 — Yếu tố con người | Tình huống nào cần người thật đọc được mỉa mai, văn hóa, cảm xúc? | 2-3 tình huống |
+| Góc 1 — Hậu quả trước | Nếu AI sai, hậu quả nặng nhất là gì? | 4-5 tình huống |
+| Góc 2 — Tình huống đời thường | Người dùng đang vội, mơ hồ, lười đọc, hoặc cố thuyết phục AI sẽ hỏi gì? | 3-4 tình huống |
+| Góc 3 — Bối cảnh riêng | Tình huống nào chỉ chủ đề của nhóm mới có? | 3-4 tình huống |
+| Góc 4 — Yếu tố con người | Tình huống nào cần người thật đọc được mỉa mai, văn hóa, cảm xúc? | 2-3 tình huống |
 
 ### Gợi ý cụ thể cho từng góc nhìn
 
-**L1 — Hậu quả trước**
+**Góc 1 — Hậu quả trước**
 
 Bắt đầu từ hậu quả xấu nhất, rồi truy ngược lại câu hỏi người dùng có thể hỏi.
 
@@ -100,16 +100,16 @@ Ví dụ hậu quả:
 - Chọn sai ngành / sai dịch vụ.
 - Rủi ro sức khỏe, pháp lý, danh tiếng.
 
-**L2 — Tình huống đời thường**
+**Góc 2 — Tình huống đời thường**
 
-Đừng chỉ test người dùng "ngoan". Hãy test người dùng:
+Đừng chỉ kiểm thử người dùng "ngoan". Hãy kiểm thử người dùng:
 
 - Hỏi thiếu bối cảnh.
 - Viết tắt, viết sai chính tả.
 - Đang vội.
 - Cố ép AI trả lời dù AI không nên trả lời.
 
-**L3 — Bối cảnh riêng**
+**Góc 3 — Bối cảnh riêng**
 
 Hỏi: người ngoài chủ đề này có nghĩ ra tình huống này không?
 
@@ -120,7 +120,7 @@ Ví dụ:
 - Cách nói lịch sự / vòng vo.
 - Thuật ngữ địa phương hoặc thuật ngữ ngành.
 
-**L5 — Yếu tố con người**
+**Góc 4 — Yếu tố con người**
 
 Tìm tình huống AI dễ đọc sai cảm xúc hoặc ngữ cảnh.
 
@@ -133,9 +133,9 @@ Ví dụ:
 
 | ID | Góc nhìn | Kiểu lỗi | Tình huống kiểm thử | Hành vi AI kỳ vọng | Nguồn |
 |---|---|---|---|---|---|
-| C-01 | L1 | Bịa thông tin | | | sự cố thật / AI gợi ý / kết hợp |
-| C-02 | L2 | Chiều theo người dùng | | | |
-| C-03 | L3 | Bối cảnh riêng | | | |
+| C-01 | Góc 1 | Bịa thông tin | | | sự cố thật / AI gợi ý / kết hợp |
+| C-02 | Góc 2 | Chiều theo người dùng | | | |
+| C-03 | Góc 3 | Bối cảnh riêng | | | |
 
 Ghi nhãn nguồn:
 
@@ -145,7 +145,7 @@ Ghi nhãn nguồn:
 
 ### Cảnh báo khi dùng AI gợi ý
 
-- AI có thể lặp lại case nổi tiếng nhưng không phù hợp chủ đề.
+- AI có thể lặp lại tình huống nổi tiếng nhưng không phù hợp chủ đề.
 - AI có thể tạo tình huống quá chung chung.
 - AI có thể tự thêm số liệu hoặc nguồn không có thật.
 - Nhóm phải tự lọc lại: giữ tình huống sát bối cảnh, bỏ tình huống chung chung.

@@ -5,13 +5,13 @@ phase: Xây demo
 nop-cuoi: Có — nộp đủ 3 thư mục con
 ---
 
-# artifact/ — 3 lớp giải pháp
+# Thư mục artifact/ — 3 lớp giải pháp
 
 Thư mục này chứa 3 lớp giải pháp cho cùng một rủi ro chính.
 
 Mỗi lớp có:
 
-- `card.md`: giải thích logic giải pháp.
+- `card.md`: giải thích vì sao chọn giải pháp.
 - `demo.*`: bản demo để người khác xem, kiểm tra và phản biện.
 
 ## Cấu trúc cần có
@@ -35,9 +35,9 @@ artifact/
 
 | Thư mục | Lớp giải pháp | Nên chứng minh điều gì |
 |---|---|---|
-| `1-uiux/` | Giao diện | Người dùng thấy cảnh báo, nguồn, trạng thái xác minh, nút chuyển người thật |
-| `2-prompt/` | Chỉ dẫn AI | AI biết khi nào hỏi lại, từ chối, dẫn nguồn, hoặc chuyển tuyến |
-| `3-architecture/` | Kiến trúc dữ liệu | AI lấy nguồn từ đâu, kiểm tra nguồn thế nào, fallback ra sao |
+| `1-uiux/` | Giao diện | Người dùng thấy cảnh báo, nguồn, trạng thái xác minh, nút chuyển sang người thật |
+| `2-prompt/` | Chỉ dẫn AI | AI biết khi nào hỏi lại, từ chối, dẫn nguồn, hoặc chuyển sang người thật |
+| `3-architecture/` | Kiến trúc dữ liệu | AI lấy nguồn từ đâu, kiểm tra nguồn thế nào, xử lý ra sao khi thiếu nguồn |
 
 Ba lớp này phải bổ sung cho nhau. Không làm 3 biến thể giao diện giống nhau.
 
@@ -45,7 +45,7 @@ Ba lớp này phải bổ sung cho nhau. Không làm 3 biến thể giao diện 
 
 ```text
 20 phút — Mỗi thành viên làm một lớp
-15 phút — Review chéo trong nhóm
+15 phút — Rà chéo trong nhóm
 5 phút  — Sửa trạng thái trong 1-map-and-format.md
 ```
 
@@ -58,19 +58,19 @@ Nhóm 3 người:
 Nhóm 2 người:
 
 - Một người làm 2 lớp.
-- Người còn lại làm 1 lớp và review 2 lớp kia.
+- Người còn lại làm 1 lớp và rà lại 2 lớp kia.
 
 ## Demo có thể làm bằng gì?
 
 | Lớp | Demo phù hợp |
 |---|---|
 | Giao diện | vẽ tay, Excalidraw, Figma, HTML, ASCII |
-| Chỉ dẫn AI | Markdown spec, system prompt, ví dụ câu trả lời |
+| Chỉ dẫn AI | Bản prompt trong Markdown, ví dụ câu trả lời |
 | Kiến trúc dữ liệu | ASCII, Mermaid, sơ đồ hộp-mũi tên |
 
 Có thể dùng AI để dựng nhanh bản nháp demo. Nhóm vẫn phải đọc lại, sửa thuật ngữ, và kiểm tra tính khả thi.
 
-## Prompt mẫu có thể dùng
+## Prompt tham khảo có thể dùng
 
 | Lớp | Prompt gợi ý |
 |---|---|
@@ -90,7 +90,7 @@ Mỗi `card.md` cần 4 phần:
 Mẫu viết nhanh:
 
 ```markdown
-# Solution Card — [Tên lớp giải pháp]
+# card.md — [Tên lớp giải pháp]
 
 ## 1. Rủi ro xử lý
 - ID tình huống: T-__
@@ -121,7 +121,7 @@ Mẫu viết nhanh:
 ## Ví dụ ngắn — lớp giao diện
 
 ```markdown
-# Solution Card — Giao diện cảnh báo nguồn
+# card.md — Giao diện cảnh báo nguồn
 
 ## 1. Rủi ro xử lý
 - ID tình huống: T-01
@@ -134,10 +134,10 @@ Mẫu viết nhanh:
 
 ## 3. Bản demo
 - File demo: ./demo.md
-- Cần thấy badge "Đã xác minh", link nguồn, nút hỏi tư vấn viên.
+- Cần thấy nhãn "Đã xác minh", đường dẫn nguồn, nút hỏi tư vấn viên.
 
 ## 4. Tác dụng phụ và cách giảm
-- Giao diện rối hơn -> chỉ hiện cảnh báo ở thông tin nhạy cảm như deadline, học phí, học bổng.
+- Giao diện rối hơn -> chỉ hiện cảnh báo ở thông tin nhạy cảm như hạn chót, học phí, học bổng.
 
 ## 5. Hành động phòng vệ
 - [ ] Ngăn
@@ -153,13 +153,13 @@ Mẫu viết nhanh:
 - [ ] Card nói rõ rủi ro đang xử lý.
 - [ ] Demo đủ trực quan để nhóm khác phản biện.
 - [ ] Có ít nhất một hành động phòng vệ: ngăn, phát hiện, khắc phục, thông báo.
-- [ ] Có ghi tác dụng phụ hoặc trade-off.
+- [ ] Có ghi tác dụng phụ hoặc đánh đổi.
 
 ## Nhóm khác sẽ phản biện gì?
 
 | Góc phản biện | Câu hỏi |
 |---|---|
-| Hợp tầng | Giải pháp này có sửa đúng nguyên nhân gốc không? |
+| Đúng tầng | Giải pháp này có sửa đúng nguyên nhân gốc không? |
 | Cụ thể | Demo có đủ rõ để hiểu cách vận hành không? |
 | Đủ lớp | 3 lớp có bổ sung cho nhau không? |
 | Tác dụng phụ | Có làm chậm, tăng chi phí, làm rối giao diện, hoặc gây hiểu nhầm mới không? |

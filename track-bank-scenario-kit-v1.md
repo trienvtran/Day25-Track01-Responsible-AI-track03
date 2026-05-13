@@ -465,15 +465,15 @@ Agent nhận feedback sau cuộc gọi
 
 ## Menu lớp giải pháp cho phần sau của lab
 
-Sau khi học viên tự xác định failure case, nhóm chọn 1-2 layer để thiết kế solution.
+Sau khi nhóm xác định tình huống lỗi, chọn 1-2 lớp giải pháp để thiết kế.
 
-| Layer | Artifact có thể nộp | Phù hợp khi |
+| Lớp giải pháp | Bản demo có thể nộp | Phù hợp khi |
 |---|---|---|
-| UX/UI response | Screen sketch, warning, source badge, escalation button | User cần thấy giới hạn hoặc bước tiếp theo |
-| System prompt | Prompt rules + examples | Cần siết hành vi AI trong phạm vi rõ |
-| Workflow process | Flowchart, handoff, approval path | Cần người thật hoặc bước kiểm tra |
-| Data/RAG architecture | Source list, retrieval rule, fallback behavior | Câu trả lời phải dựa trên nguồn |
-| Detection/monitoring | Log, alert, dashboard, audit review | Cần phát hiện lỗi lặp lại |
+| Trải nghiệm/giao diện (UX/UI) | Phác thảo màn hình, cảnh báo, nguồn, nút chuyển người thật | Người dùng cần thấy giới hạn hoặc bước tiếp theo |
+| Chỉ dẫn AI | Bộ quy tắc trả lời + ví dụ hỏi đáp | Cần siết hành vi AI trong phạm vi rõ |
+| Quy trình vận hành | Sơ đồ quy trình, bước chuyển người thật, bước phê duyệt | Cần người thật hoặc bước kiểm tra |
+| Kiến trúc dữ liệu/RAG | Danh sách nguồn, quy tắc tra cứu, cách xử lý khi thiếu nguồn | Câu trả lời phải dựa trên nguồn |
+| Theo dõi lỗi | Log, cảnh báo, bảng theo dõi, bước rà lại | Cần phát hiện lỗi lặp lại |
 | Policy/disclosure | One-page rule, user-facing disclosure | Cần làm rõ boundary và trách nhiệm |
 | Approval flow | Human review queue, signoff gate | Có quyết định hoặc hành động nhạy cảm |
 | Feedback loop | Report wrong answer, weekly fix cycle | Cần cải thiện sau khi dùng |
