@@ -50,7 +50,8 @@ Day25-MãNhóm/                                       ← kho GitHub công khai
 Sao chép mẫu này vào `README.md` ở gốc kho bài và điền:
 
 ```markdown
-# Day 25 — Chủ đề [N]: [Tên chủ đề]
+# Day 25 — Chủ đề 3: Sàng Lọc Y Tế AI
+
 
 ## Thành viên nhóm
 
