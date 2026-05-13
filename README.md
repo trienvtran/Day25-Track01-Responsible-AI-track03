@@ -56,9 +56,10 @@ Sao chép mẫu này vào `README.md` ở gốc kho bài và điền:
 
 | # | Mã học viên | Họ tên đầy đủ |
 |---|-------------|---------------|
-| 1 | A20-XXXXX   | Nguyễn Văn A  |
-| 2 | A20-XXXXX   | Trần Thị B    |
-| 3 | A20-XXXXX   | Lê Văn C      |
+| 1 | 2A202600210 | Nguyễn Thị Ngọc Thư  |
+| 2 | 2A202600320 | Trần Vọng Triển    |
+| 3 | 2A202600167 | Nguyễn Hữu Quang      |
+| 3 | 2A202600405 | Nguyễn Thị Ngọc      |
 
 ## Kết quả cuối
 
